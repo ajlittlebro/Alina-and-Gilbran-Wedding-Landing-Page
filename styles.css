@@ -34,18 +34,11 @@ body {
   font-family: "Jost", sans-serif;
   color: var(--deep);
   background: var(--cream);
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;               /* top:0; right:0; bottom:0; left:0 */
-  z-index: 0;
+  /* Fixed background image on body for the parallax-behind effect */
   background-image: url("img/BGImageAligned.jpeg");
+  background-attachment: fixed;
   background-size: cover;
   background-position: center;
-  will-change: transform; /* evita repaints innecesarios */
-  pointer-events: none;
 }
 
 /* Every section sits on top of the fixed body image */
@@ -177,7 +170,6 @@ img {
   justify-content: space-between;
   padding: 0 30px;
   transition: box-shadow var(--trans);
-  
 }
 #nav.scrolled {
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
