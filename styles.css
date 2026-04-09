@@ -31,7 +31,14 @@ html {
 }
 
 body {
-  background: none; /* Elimina el fondo del body */
+  /* Quita o comenta estas líneas: */
+  /* background-image: url("img/BGImageAligned.jpeg"); */
+  /* background-attachment: fixed; */
+  /* background-size: cover; */
+  /* background-position: center; */
+  font-family: "Jost", sans-serif;
+  color: var(--deep);
+  background: var(--cream); /* color de respaldo */
   position: relative;
 }
 
@@ -46,8 +53,10 @@ body::before {
   background-image: url("img/BGImageAligned.jpeg");
   background-size: cover;
   background-position: center;
-  z-index: -2; /* Detrás de todo */
-  will-change: transform; /* optimiza rendimiento */
+  background-repeat: no-repeat;
+  z-index: -2; /* Debajo de todo el contenido */
+  pointer-events: none; /* Para que no interfiera con clics */
+  will-change: transform; /* Optimiza el rendimiento */
 }
 
 /* Asegurar que las secciones tengan fondo semi-transparente encima */
