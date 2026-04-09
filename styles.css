@@ -34,11 +34,22 @@ body {
   font-family: "Jost", sans-serif;
   color: var(--deep);
   background: var(--cream);
-  /* Fixed background image on body for the parallax-behind effect */
+  width: 100%;          /* ← fix Poco X3 Pro */
+  overflow-x: hidden;   /* ← evita scroll horizontal */
+}
+
+/* Fondo estático universal (iOS/Android safe, sin zoom al scroll) */
+#bg-fixed {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
   background-image: url("img/BGImageAligned.jpeg");
-  background-attachment: fixed;
   background-size: cover;
   background-position: center;
+  /* Sin background-attachment: fixed — el elemento ya está fixed */
+  will-change: transform; /* desactiva repaint agresivo en iOS */
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }
 
 /* Every section sits on top of the fixed body image */
