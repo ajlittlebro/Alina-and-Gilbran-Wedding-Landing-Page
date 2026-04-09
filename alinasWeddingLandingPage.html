@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alina & Gilbran · 27.06.2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="alinasWeddingLandingPage.css" />
+  <script defer src="alinasWeddingLandingPage.js"></script>
+  <script src="https://unpkg.com/packery@2.1.2/dist/packery.pkgd.min.js"></script>
+  <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+
+
+</head>
+
+<body>
+
+  <!-- ========================
+     NAVIGATION
+======================== -->
+  <nav id="nav">
+    <div class="nav-brand">
+      <a href="#"><img src="img/A&G.png" alt="Alina & Gilbran Logo" class="logo-img"></a>
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#itinerario">Itinerario</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#mesa">Mesa de Regalos</a></li>
+      <li><a href="#vestimenta">Vestimenta</a></li>
+      <li><a href="#recomendaciones">Recomendaciones</a></li>
+      <li><a href="#savethedate">Save the Date</a></li>
+      <li><a href="#rsvp" class="btn btn-filled" style="padding:9px 22px;font-size:.68rem;">RSVP</a></li>
+    </ul>
+
+    <button class="hamburger" id="hamburger" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu">
+    <ul>
+      <li><a href="#inicio" class="mobile-link">Inicio</a></li>
+      <li><a href="#itinerario" class="mobile-link">Itinerario</a></li>
+      <li><a href="#nosotros" class="mobile-link">Nosotros</a></li>
+      <li><a href="#mesa" class="mobile-link">Mesa de Regalos</a></li>
+      <li><a href="#vestimenta" class="mobile-link">Vestimenta</a></li>
+      <li><a href="#recomendaciones" class="mobile-link">Recomendaciones</a></li>
+      <li><a href="#savethedate" class="mobile-link">Save the Date</a></li>
+      <li><a href="#rsvp" class="mobile-link">RSVP</a></li>
+    </ul>
+  </div>
+
+
+  <!-- ========================
+     1. HERO
+======================== -->
+  <section id="inicio">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-logo">
+        <img src="img/A&G_Blanco.png" alt="Alina & Gilbran Logo" class="hero-logo-img">
+      </div>
+      <h1 class="hero-names">Alina <em>y</em> Gilbran</h1>
+      <p class="hero-date">27 · Junio · 2026</p>
+
+      <!-- Countdown -->
+      <div class="countdown" id="countdown">
+        <div class="cd-unit"><span class="cd-num" id="cd-days">-</span><span class="cd-label">Días</span></div>
+        <div class="cd-sep">:</div>
+        <div class="cd-unit"><span class="cd-num" id="cd-hours">--</span><span class="cd-label">Horas</span></div>
+        <div class="cd-sep">:</div>
+        <div class="cd-unit"><span class="cd-num" id="cd-mins">--</span><span class="cd-label">Minutos</span></div>
+        <div class="cd-sep">:</div>
+        <div class="cd-unit"><span class="cd-num" id="cd-secs">--</span><span class="cd-label">Segundos</span></div>
+      </div>
+
+      <a href="#rsvp" target="_blank" class="btn btn-filled">
+        <i class="fa-solid fa-heart" style="margin-right:8px;font-size:.8em;"></i>Confirmar Asistencia
+      </a>
+    </div>
+  </section>
+
+
+  <!-- ========================
+     2. PADRES
+======================== -->
+  <section id="padres" class="section-bg">
+    <div class="section-inner">
+      <h2 class="section-title">En Compañía de Nuestros Padres</h2>
+      <div class="divider"><span class="divider-icon"><i class="fa-solid fa-feather-pointed"></i></span></div>
+
+      <div class="parents-grid">
+        <div class="parents-col">
+          <p class="parents-role"><i class="fa-solid" style="margin-right:6px;font-size:.7em;opacity:.7;"></i>Padres de
+            la Novia</p>
+          <p class="parents-name">
+            Joaquín Tolentino Elizalde<br>
+            Raquel Ibarra Guardiola
+          </p>
+        </div>
+        <div class="parents-divider"></div>
+        <div class="parents-col">
+          <p class="parents-role"><i class="fa-solid" style="margin-right:6px;font-size:.7em;opacity:.7;"></i>Padres del
+            Novio</p>
+          <p class="parents-name">
+            Sergio Hernández Contreras <span style="color:var(--gold)"></span><br>
+            Griselda Peña Villarreal
+          </p>
+        </div>
+      </div>
+
+      <div class="divider"><span class="divider-icon">✦</span></div>
+      <p class="honor-text">Tenemos el honor de invitarlos a nuestra boda</p>
+    </div>
+  </section>
+
+
+  <!-- ========================
+     3. ITINERARIO
+======================== -->
+  <section id="itinerario" class="section-bg-white">
+    <div class="section-inner">
+      <h2 class="section-title">Itinerario</h2>
+      <div class="divider"><span class="divider-icon"><i class="fa-regular fa-clock"></i></span></div>
+
+      <div class="itinerary-grid">
+        <!-- Ceremonia -->
+        <div class="itinerary-card">
+          <div class="it-icon"><i class="fa-solid fa-church"></i></div>
+          <p class="it-type">Ceremonia</p>
+          <p class="it-hour">17:00 hrs</p>
+          <p class="it-place">Iglesia Cristiana BETHEL</p>
+          <p class="it-address">Fco. Javier Mina 485<br>Zona Centro, 88500 Reynosa, Tamps.</p>
+          <a href="https://maps.app.goo.gl/bHSxNGjuhDuoMdio7" " target=" _blank" class="btn">
+            <i class="fa-solid fa-location-dot" style="margin-right:7px;"></i>Ver Mapa
+          </a>
+        </div>
+
+        <!-- Recepción -->
+        <div class="itinerary-card">
+          <div class="it-icon"><i class="fa-solid fa-champagne-glasses"></i></div>
+          <p class="it-type">Recepción</p>
+          <p class="it-hour">20:00 hrs</p>
+          <p class="it-place">Legacy Salón de Eventos Sociales</p>
+          <p class="it-address">Blvd. Las Fuentes 252<br>Las Fuentes, 88710 Reynosa, Tamps.</p>
+          <a href="https://maps.app.goo.gl/VS5k4JvPcfHiZnfL9" target="_blank" class="btn">
+            <i class="fa-solid fa-location-dot" style="margin-right:7px;"></i>Ver Mapa
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================
+     4. NO NIÑOS
+======================== -->
+  <section id="no-ninos" class="section-bg">
+    <div class="section-inner" style="padding-top:70px;padding-bottom:70px;">
+      <div class="no-kids-wrap">
+        <div class="no-kids-icon"><i class="fa-solid fa-baby"></i></div>
+        <div class="divider" style="margin:0 auto 20px;"><span class="divider-icon">✦</span></div>
+        <p class="no-kids-text">Amablemente solicitamos <strong>no</strong> niños.</p>
+        <p class="no-kids-sub">Gracias por tu comprensión</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================
+     5. VERSO + GALERÍA
+======================== -->
+  <section id="nosotros" class="section-bg-deep">
+    <div class="section-inner">
+      <div class="divider" style="--border:rgba(232,196,178,.2);">
+        <span class="divider-icon" style="color:var(--rose);"><i class="fa-solid fa-dove"></i></span>
+      </div>
+      <p class="verse-text">"Padre nuestro que estan en el cielo"</p>
+      <p class="verse-ref">— Salmo 4:8 amen</p>
+
+      <div class="gallery-packery" id="wedding-gallery">
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================
+     6. MESA DE REGALOS
+======================== -->
+  <section id="mesa" class="section-bg-white">
+    <div class="section-inner">
+      <h2 class="section-title">Sugerencia de Regalos</h2>
+      <div class="divider"><span class="divider-icon"><i class="fa-solid fa-gift"></i></span></div>
+
+      <div class="gift-box">
+        <p class="gift-intro">Si gustas tener un detalle con nosotros para seguir completando nuestro nuevo hogar, lo
+          podrás hacer de la siguiente manera:</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================
+     7. RECOMENDACIONES
+======================== -->
+  <section id="recomendaciones" class="section-bg">
+    <div class="section-inner">
+      <h2 class="section-title">Recomendaciones</h2>
+      <div class="divider"><span class="divider-icon"><i class="fa-solid fa-hotel"></i></span></div>
+
+      <p class="rec-intro">Si vienes de fuera, aquí te dejamos algunas opciones de alojamiento para que estés cómodo y
+        cerca del evento.</p>
+
+      <div class="rec-grid">
+        <!-- Salón 1 -->
+        <div class="rec-card">
+          <p class="rec-name">Holiday Inn Reynosa-Industrial Poniente</p>
+          <p class="rec-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Lib. Monterrey, Parque Industrial, Villa Florida, 88730 Reynosa, Tamps.</span>
+          </p>
+          <p class="rec-detail">
+            <i class="fa-solid fa-phone"></i>
+            <a href="tel:+528999090170">+52 (899) 909 01 70</a>
+          </p>
+          <div class="rec-btns">
+            <a href="https://www.ihg.com/holidayinn/hotels/us/es/reynosa/rexvf/hoteldetail" target="_blank"
+              class="rec-btn">
+              <i class="fa-brands"></i> Hacer Reservación
+            </a>
+            <a href="https://maps.app.goo.gl/syjTgwzEuLTBxCEW7" target="_blank" class="rec-btn">
+              <i class="fa-solid fa-map-pin"></i> Ubicación
+            </a>
+          </div>
+        </div>
+
+        <!-- Salón 2 -->
+        <div class="rec-card">
+          <p class="rec-name">Hampton Inn by Hilton Reynosa/Zona Industrial</p>
+          <p class="rec-detail">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Lib. Monterrey 1000, Plaza Periferico, 88730 Reynosa, Tamps.</span>
+          </p>
+          <p class="rec-detail">
+            <i class="fa-solid fa-phone"></i>
+            <a href="tel:+528999700100">+52 (899) 970 01 00</a>
+          </p>
+          <div class="rec-btns">
+            <a href="https://www.hilton.com/en/hotels/rexhahx-hampton-reynosa-zona-industrial/" target="_blank"
+              class="rec-btn">
+              <i class="fa-brands"></i> Hacer Reservación
+            </a>
+            <a href="https://maps.app.goo.gl/nMRxakNfCxyLFof78" target="_blank" class="rec-btn">
+              <i class="fa-solid fa-map-pin"></i> Ubicación
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================
+     8. VESTIMENTA
+======================== -->
+  <section id="vestimenta" class="section-bg-deep">
+    <div class="section-inner">
+      <h2 class="section-title light">Riguroso Formal</h2>
+      <div class="divider" style="--border:rgba(232,196,178,.2);">
+        <span class="divider-icon" style="color:var(--rose);">✦</span>
+      </div>
+
+      <div class="dress-grid">
+        <div class="dress-card">
+          <div class="dress-icon"><i class="fa-solid fa-user-tie"></i></div>
+          <p class="dress-gender">Hombres</p>
+          <p class="dress-detail">Traje Completo<br><em style="font-size:.95em;opacity:.8;">(Corbata o moño)</em></p>
+        </div>
+        <div class="dress-card">
+          <div class="dress-icon"><i class="fa-solid fa-person-dress"></i></div>
+          <p class="dress-gender">Mujeres</p>
+          <p class="dress-detail">Vestido Largo<br><em style="font-size:.9em;opacity:.8;">*No colores blancos</em></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================
+     9. SAVE THE DATE
+======================== -->
+  <section id="savethedate" class="section-bg-white">
+    <div class="section-inner">
+      <div class="std-wrap">
+        <h2 class="section-title">Save the Date</h2>
+        <div class="divider"><span class="divider-icon"><i class="fa-regular fa-calendar-days"></i></span></div>
+        <p class="std-big">27.06.2026</p>
+        <p class="std-sub">Reynosa, Tamaulipas · 17:00 hrs</p>
+        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Boda+Alina+y+Gilbran&dates=20260627T230000Z/20260628T070000Z&details=Ceremonia+a+las+17:00+hrs.+Recepción+a+las+20:00+hrs.+Iglesia+Cristiana+BETHEL+y+Legacy+Salón+de+Eventos+Sociales.&location=Reynosa,+Tamaulipas&sf=true&output=xml"
+          target="_blank" class="btn btn-filled">
+          <i class="fa-brands fa-google" style="margin-right:8px;"></i>Agregar Evento a Calendario
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================
+     10. RSVP
+======================== -->
+  <section id="rsvp" class="section-bg">
+    <div class="section-inner">
+      <h2 class="section-title">Confirmación de Asistencia</h2>
+      <div class="divider"><span class="divider-icon"><i class="fa-regular fa-envelope"></i></span></div>
+
+      <div class="rsvp-wrap">
+        <p class="rsvp-body">Tu presencia es muy importante para nosotros. Te agradeceremos confirmar tu asistencia al
+          número de WhatsApp desde el cual recibiste la invitación.</p>
+        <p class="rsvp-note">Recuerda que los boletos son personales e intransferibles.</p>
+        <a href="https://forms.gle/ejemplo" target="_blank" class="btn btn-filled"
+          style="font-size:.85rem;padding:16px 44px;">
+          <i class="fa-solid fa-heart" style="margin-right:9px;"></i>Confirmar Asistencia
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================
+     11. FOOTER
+======================== -->
+  <footer>
+    <div class="footer-logo">
+      <img src="img/A&G_Blanco.png" alt="Alina & Gilbran Logo" class="footer-logo-img">
+    </div>
+    <p class="footer-copy">
+      Hecho con <span style="color:var(--gold);">♥</span> por <a href="#" target="_blank">Alaincin</a>
+      &nbsp;·&nbsp; Todos los derechos reservados &nbsp;·&nbsp; 2026
+    </p>
+  </footer>
+
+  <!-- Lightbox para imágenes a tamaño completo -->
+  <div id="lightbox" class="lightbox">
+    <span class="lightbox-close">&times;</span>
+    <img id="lightbox-img" src="" alt="Imagen ampliada">
+  </div>
+
+
+</body>
+
+</html>
