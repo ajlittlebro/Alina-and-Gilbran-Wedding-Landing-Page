@@ -31,18 +31,28 @@ html {
 }
 
 body {
-  font-family: "Jost", sans-serif;
-  color: var(--deep);
-  background: var(--cream);
-  /* Fixed background image on body for the parallax-behind effect */
-  background-image: url("img/BGImageAligned.jpeg");
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
+  background: none; /* Elimina el fondo del body */
+  position: relative;
 }
 
-/* Every section sits on top of the fixed body image */
+/* Pseudo-elemento fijo que contendrá la imagen de fondo */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("img/BGImageAligned.jpeg");
+  background-size: cover;
+  background-position: center;
+  z-index: -2; /* Detrás de todo */
+  will-change: transform; /* optimiza rendimiento */
+}
+
+/* Asegurar que las secciones tengan fondo semi-transparente encima */
 section {
+  background-color: transparent; /* ya lo están */
   position: relative;
   z-index: 1;
 }
