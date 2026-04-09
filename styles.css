@@ -34,8 +34,8 @@ body {
   font-family: "Jost", sans-serif;
   color: var(--deep);
   background: var(--cream);
-  width: 100%;          /* ← fix Poco X3 Pro */
-  overflow-x: hidden;   /* ← evita scroll horizontal */
+  width: 100%; /* ← fix Poco X3 Pro */
+  overflow-x: hidden; /* ← evita scroll horizontal */
 }
 
 /* Fondo estático universal (iOS/Android safe, sin zoom al scroll) */
@@ -335,7 +335,7 @@ img {
   line-height: 1;
   letter-spacing: 0.02em;
   margin-bottom: 20px;
-  margin-top: -80px ;
+  margin-top: -80px;
 }
 .hero-names em {
   font-style: italic;
@@ -347,10 +347,9 @@ img {
 }
 
 .hero-logo-img {
-  display: inline-block;   /* para que text-align center funcione */
+  display: inline-block; /* para que text-align center funcione */
   height: 300px;
   width: auto;
-  
 }
 
 @media (max-width: 768px) {
@@ -767,6 +766,12 @@ img {
 }
 .rec-btn i {
   font-size: 0.85rem;
+}
+
+@media (max-width: 768px) {
+  .rec-btns {
+    justify-content: center;
+  }
 }
 
 /* ========================
