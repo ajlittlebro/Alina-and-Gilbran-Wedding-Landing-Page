@@ -42,24 +42,15 @@ body {
 /* Fondo estático universal (iOS/Android safe, sin zoom al scroll) */
 #bg-fixed {
   position: fixed;
-  top: 50%;         /* Centrado vertical */
-  left: 50%;        /* Centrado horizontal */
-  width: 100vw;
-  /* Un poco más alto que la pantalla para cubrir el hueco de la barra */
-  height: 115vh;    
+  inset: 0;
   z-index: 0;
-  
-  /* Centramos el div físicamente */
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  
   background-image: url("img/BGImageAligned.jpeg");
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
-  
-  pointer-events: none;
-  /* Eliminamos will-change para evitar conflictos con el centrado en algunos navegadores */
+  /* Sin background-attachment: fixed — el elemento ya está fixed */
+  will-change: transform; /* desactiva repaint agresivo en iOS */
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }
 
 /* Every section sits on top of the fixed body image */

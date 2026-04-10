@@ -232,22 +232,3 @@ document.addEventListener("keydown", function (e) {
   }
 });
 
-function fixBackgroundHeight() {
-    const bg = document.getElementById('bg-fixed');
-    if (bg) {
-      // Le damos un 15% extra de altura fija sobre el total de la pantalla
-      // Esto cubre el área de la barra de navegación en cualquier celular
-      const safetyMargin = 1.15; 
-      bg.style.height = (window.innerHeight * safetyMargin) + 'px';
-    }
-  }
-
-  fixBackgroundHeight();
-
-  let lastWidth = window.innerWidth;
-  window.addEventListener('resize', () => {
-    if (window.innerWidth !== lastWidth) {
-      lastWidth = window.innerWidth;
-      fixBackgroundHeight();
-    }
-  });
