@@ -45,7 +45,7 @@ body {
   position: fixed;
   inset: 0;
   z-index: 0;
-  background-image: url("img/BGImageAligned.jpeg");
+  background-image: url("img/BGImageAligned.avif");
   background-size: cover;
   background-position: center;
   /* Sin background-attachment: fixed — el elemento ya está fixed */

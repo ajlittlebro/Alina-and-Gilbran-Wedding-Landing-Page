@@ -73,21 +73,20 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   const galleryEl = document.getElementById("wedding-gallery");
   if (!galleryEl) return;
 
-  // Lista de imágenes 
+  // Lista de imágenes
   const images = [
-    { src: "img/fotoHorizontal1.jpeg", orientation: "h" },
-    { src: "img/fotoVertical1.jpeg", orientation: "v" },
-    { src: "img/fotoHorizontal2.jpeg", orientation: "h" },
-    { src: "img/fotoVertical2.jpeg", orientation: "v" },
-    { src: "img/fotoHorizontal3.jpeg", orientation: "h" },
-    { src: "img/fotoHorizontal4.jpeg", orientation: "h" },
-    { src: "img/fotoVertical3.jpeg", orientation: "v" },
-    { src: "img/fotoVertical4.jpeg", orientation: "v" },
-    { src: "img/fotoHorizontal5.jpeg", orientation: "h" },
-    { src: "img/fotoHorizontal6.jpeg", orientation: "h" },
-    { src: "img/fotoHorizontal7.jpeg", orientation: "h" },
-    { src: "img/fotoHorizontal8.jpeg", orientation: "h" },
-
+    { src: "img/fotoHorizontal1.avif", orientation: "h" },
+    { src: "img/fotoVertical1.avif", orientation: "v" },
+    { src: "img/fotoHorizontal2.avif", orientation: "h" },
+    { src: "img/fotoVertical2.avif", orientation: "v" },
+    { src: "img/fotoHorizontal3.avif", orientation: "h" },
+    { src: "img/fotoHorizontal4.avif", orientation: "h" },
+    { src: "img/fotoVertical3.avif", orientation: "v" },
+    { src: "img/fotoVertical4.avif", orientation: "v" },
+    { src: "img/fotoHorizontal5.avif", orientation: "h" },
+    { src: "img/fotoHorizontal6.avif", orientation: "h" },
+    { src: "img/fotoHorizontal7.avif", orientation: "h" },
+    { src: "img/fotoHorizontal8.avif", orientation: "h" },
   ];
 
   // Construir items
@@ -230,4 +229,3 @@ document.addEventListener("keydown", function (e) {
     closeLightbox();
   }
 });
-
