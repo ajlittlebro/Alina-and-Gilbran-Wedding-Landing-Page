@@ -96,7 +96,7 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     const img = document.createElement("img");
     img.src = imgData.src;
     img.alt = "Boda Alina & Gilbran";
-    img.loading = "eager";
+    img.loading = "lazy";
     item.appendChild(img);
     galleryEl.appendChild(item);
   });
