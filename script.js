@@ -73,7 +73,7 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   const galleryEl = document.getElementById("wedding-gallery");
   if (!galleryEl) return;
 
-  // Lista de imágenes (mezcla manual intercalada)
+  // Lista de imágenes 
   const images = [
     { src: "img/fotoHorizontal1.jpeg", orientation: "h" },
     { src: "img/fotoVertical1.jpeg", orientation: "v" },
@@ -88,7 +88,6 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     { src: "img/fotoHorizontal7.jpeg", orientation: "h" },
     { src: "img/fotoHorizontal8.jpeg", orientation: "h" },
 
-    // Añade más según necesites, siempre intercalando
   ];
 
   // Construir items
