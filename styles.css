@@ -36,18 +36,28 @@ body {
   background: var(--cream);
   width: 100%; /* ← fix Poco X3 Pro */
   overflow-x: hidden; /* ← evita scroll horizontal */
+  
 }
 
 /* Fondo estático universal (iOS/Android safe, sin zoom al scroll) */
 #bg-fixed {
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh; /* Fallback para navegadores antiguos */
+  height: 100svh; /* Clave: Evita que el contenedor cambie de tamaño al ocultarse la barra del navegador */
   z-index: 0;
+  
   background-image: url("img/BGImageAligned.jpeg");
   background-size: cover;
-  background-position: center;
-  /* Sin background-attachment: fixed — el elemento ya está fixed */
-  will-change: transform; /* desactiva repaint agresivo en iOS */
+  background-position: center center;
+  background-repeat: no-repeat;
+  
+  pointer-events: none; /* Asegura que no bloquee ningún click en la página */
+  
+  /* Optimizaciones de hardware para evitar repaints en iOS */
+  will-change: transform;
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
 }
