@@ -28,6 +28,7 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  overflow-x: hidden;
 }
 
 body {
@@ -1023,4 +1024,57 @@ footer {
 
 .lightbox-close:hover {
   opacity: 0.7;
+}
+
+
+/* ========================
+   RESPONSIVE DESIGN (MÓVILES)
+   ======================== */
+@media (max-width: 768px) {
+  /* Apilar las tarjetas a 1 sola columna */
+  .itinerary-grid,
+  .rec-grid,
+  .dress-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Arreglar la cuadrícula de los padres */
+  .parents-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  /* Cambiar el divisor vertical de los padres a horizontal */
+  .parents-divider {
+    width: 60px;
+    height: 1px;
+    margin: 10px auto;
+  }
+  
+  /* Asegurar que las imágenes no rompan sus contenedores */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* Ajustes específicos para teléfonos angostos */
+@media (max-width: 480px) {
+  .countdown {
+    gap: 8px; /* Reduce el espacio entre números */
+  }
+  
+  .cd-unit {
+    min-width: 55px; /* Reduce el ancho mínimo del bloque */
+  }
+  
+  .cd-sep {
+    font-size: 2.2rem; /* Reduce el tamaño de los dos puntos */
+    margin-top: 8px;
+  }
+  
+  /* Reducir los márgenes internos para que nada choque */
+  .section-inner {
+    padding: 70px 20px;
+  }
 }
