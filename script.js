@@ -229,3 +229,59 @@ document.addEventListener("keydown", function (e) {
     closeLightbox();
   }
 });
+
+var rsvpChoice = null;
+var guestCount = 1;
+
+function selectRSVP(opt) {
+  rsvpChoice = opt;
+  var yesEl = document.getElementById("opt-yes");
+  var noEl = document.getElementById("opt-no");
+  var guestsRow = document.getElementById("guests-row");
+  var sendBtn = document.getElementById("rsvp-send-btn");
+
+  if (opt === "yes") {
+    yesEl.style.borderColor = "#c9a97a";
+    yesEl.style.background = "#fdf8f3";
+    noEl.style.borderColor = "#e0d5cc";
+    noEl.style.background = "#fff";
+    guestsRow.style.display = "block";
+  } else {
+    noEl.style.borderColor = "#c9a97a";
+    noEl.style.background = "#fdf8f3";
+    yesEl.style.borderColor = "#e0d5cc";
+    yesEl.style.background = "#fff";
+    guestsRow.style.display = "none";
+  }
+
+  sendBtn.disabled = false;
+  sendBtn.style.background = "#25D366";
+  sendBtn.style.cursor = "pointer";
+}
+
+function changeGuests(delta) {
+  guestCount = Math.max(1, Math.min(20, guestCount + delta));
+  document.getElementById("guest-count").textContent = guestCount;
+}
+
+function sendRSVP() {
+  if (!rsvpChoice) return;
+  var msg;
+  if (rsvpChoice === "yes") {
+    msg =
+      "¡Hola Alina y Gilbran! \nMuchas gracias por la invitación.\n✅ Claro que sí! Confirmo asistencia. Cantidad de personas: " +
+      guestCount;
+  } else {
+    msg =
+      "¡Hola Alina y Gilbran! \nMuchas gracias por la invitación.\n❌ Lo siento, no podré asistir.";
+  }
+  window.open(
+    "https://wa.me/528992279626?text=" + encodeURIComponent(msg),
+    "_blank",
+  );
+  document.getElementById("rsvp-modal").style.display = "none";
+}
+
+document.getElementById("rsvp-modal").addEventListener("click", function (e) {
+  if (e.target === this) this.style.display = "none";
+});

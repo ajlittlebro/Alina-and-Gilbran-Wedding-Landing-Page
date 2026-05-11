@@ -114,7 +114,7 @@
             Novio</p>
           <p class="parents-name">
             Sergio Hernández Contreras <span style="color:var(--gold)"></span><br>
-            Griselda Peña Villarreal
+            Gricelda Peña Villarreal
           </p>
         </div>
       </div>
@@ -331,14 +331,60 @@
         <p class="rsvp-body">Tu presencia es muy importante para nosotros. Te agradeceremos confirmar tu asistencia al
           número de WhatsApp desde el cual recibiste la invitación.</p>
         <p class="rsvp-note">Recuerda que los boletos son personales e intransferibles.</p>
-        <a href="https://wa.me/528992279626?text=%C2%A1Hola%20Alina%20y%20Gilbran%21%20%0AMuchas%20gracias%20por%20la%20invitaci%C3%B3n.%0A-%20Claro%20que%20s%C3%AD%21%20Confirmo%20asistencia%20%E2%9C%85%20Cantidad%20personas%3A%20%28%20%20%29%0A-%20Lo%20siento%2C%20no%20podre%20asistir%20%E2%9D%8C"
-          target="_blank" class="btn btn-filled" style="font-size:.85rem;padding:16px 44px;">
-
-          <i class="fa-solid fa-heart" style="margin-right:9px;"></i>Confirmar Asistencia
-        </a>
+        <button onclick="document.getElementById('rsvp-modal').style.display='flex'" class="btn btn-filled"
+          style="font-size:.85rem;padding:16px 44px;">
+          <i class="fa-brands fa-whatsapp" style="margin-right:9px;"></i>Confirmar Asistencia
+        </button>
       </div>
     </div>
   </section>
+
+  <!-- ========================
+     MODAL RSVP
+======================== -->
+  <div id="rsvp-modal"
+    style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.55);align-items:center;justify-content:center;padding:20px;">
+    <div
+      style="background:#fff;border-radius:16px;padding:36px 28px;max-width:420px;width:100%;text-align:center;position:relative;box-shadow:0 20px 60px rgba(0,0,0,.25);">
+      <button onclick="document.getElementById('rsvp-modal').style.display='none'"
+        style="position:absolute;top:14px;right:18px;background:none;border:none;font-size:1.4rem;cursor:pointer;color:#999;">&times;</button>
+
+      <p style="font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:#3a2e28;margin-bottom:6px;">¿Nos
+        acompañas?</p>
+      <p style="font-family:'Jost',sans-serif;font-size:.82rem;color:#888;margin-bottom:24px;">Selecciona tu respuesta
+      </p>
+
+      <!-- Opción 1: Confirma -->
+      <div id="opt-yes" onclick="selectRSVP('yes')"
+        style="border:2px solid #e0d5cc;border-radius:12px;padding:16px 20px;margin-bottom:12px;cursor:pointer;transition:all .2s;text-align:left;">
+        <p style="font-family:'Jost',sans-serif;font-weight:500;color:#3a2e28;margin:0 0 4px;">✅ Claro que sí, confirmo
+          asistencia</p>
+        <div id="guests-row" style="display:none;margin-top:12px;">
+          <label style="font-family:'Jost',sans-serif;font-size:.8rem;color:#888;">Cantidad de personas:</label>
+          <div style="display:flex;align-items:center;justify-content:center;gap:16px;margin-top:8px;">
+            <button onclick="event.stopPropagation();changeGuests(-1)"
+              style="width:32px;height:32px;border-radius:50%;border:1px solid #ccc;background:#f9f5f2;font-size:1.1rem;cursor:pointer;">−</button>
+            <span id="guest-count"
+              style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:#3a2e28;min-width:24px;">1</span>
+            <button onclick="event.stopPropagation();changeGuests(1)"
+              style="width:32px;height:32px;border-radius:50%;border:1px solid #ccc;background:#f9f5f2;font-size:1.1rem;cursor:pointer;">+</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Opción 2: No asiste -->
+      <div id="opt-no" onclick="selectRSVP('no')"
+        style="border:2px solid #e0d5cc;border-radius:12px;padding:16px 20px;margin-bottom:24px;cursor:pointer;transition:all .2s;text-align:left;">
+        <p style="font-family:'Jost',sans-serif;font-weight:500;color:#3a2e28;margin:0;">❌ Lo siento, no podré asistir
+        </p>
+      </div>
+
+      <button id="rsvp-send-btn" onclick="sendRSVP()" disabled
+        style="width:100%;padding:14px;border:none;border-radius:10px;background:#ccc;color:#fff;font-family:'Jost',sans-serif;font-size:.9rem;font-weight:500;cursor:not-allowed;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:8px;">
+        <i class="fa-brands fa-whatsapp"></i> Enviar por WhatsApp
+      </button>
+    </div>
+  </div>
 
 
   <!-- ========================
