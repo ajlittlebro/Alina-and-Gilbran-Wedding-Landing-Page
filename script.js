@@ -54,17 +54,44 @@ updateCountdown();
 setInterval(updateCountdown, 1000);
 
 /* --- Smooth scroll offset for fixed nav --- */
+function smoothScrollTo(targetY, duration) {
+  const startY = window.scrollY;
+  const distance = targetY - startY;
+  let startTime = null;
+
+  function easeInOutCubic(t) {
+    return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+  }
+
+  function step(timestamp) {
+    if (!startTime) startTime = timestamp;
+    const elapsed = timestamp - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    window.scrollTo(0, startY + distance * easeInOutCubic(progress));
+    if (progress < 1) requestAnimationFrame(step);
+  }
+
+  requestAnimationFrame(step);
+}
+
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
-    const target = document.querySelector(this.getAttribute("href"));
+    const href = this.getAttribute("href");
+    const target = document.querySelector(href);
     if (!target) return;
     e.preventDefault();
+    // Remove target="_blank" on hero RSVP button so it doesn't open a new tab
+    if (this.hasAttribute("target")) this.removeAttribute("target");
     const offset =
       parseInt(
         getComputedStyle(document.documentElement).getPropertyValue("--nav-h"),
       ) || 70;
     const top = target.getBoundingClientRect().top + window.scrollY - offset;
-    window.scrollTo({ top, behavior: "smooth" });
+    // Hero RSVP button (#rsvp from hero) gets a longer, cinematic scroll
+    // All other anchor links use a snappier duration
+    const isHeroRSVP = href === "#rsvp" && window.scrollY < 200;
+    const duration = isHeroRSVP ? 5000 : 800;
+    smoothScrollTo(top, duration);
   });
 });
 
