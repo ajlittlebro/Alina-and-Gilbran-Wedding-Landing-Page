@@ -113,54 +113,37 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   let pckry;
   let maxColHeight = 0;
 
-  // Función para igualar altura de columnas añadiendo margen al último elemento de cada columna
+  // Restore every item to its natural height (before Packery measures again)
+  function resetStretch() {
+    galleryEl.querySelectorAll('.gallery-item').forEach((item) => {
+      item.style.height = '';
+      const img = item.querySelector('img');
+      if (img) { img.style.height = ''; img.style.objectFit = ''; }
+    });
+  }
+
+  // Equalize the bottom edge: group items by column (their real left offset),
+  // find the tallest column and stretch the last item of every shorter column.
   function equalizeColumnHeights() {
     if (!pckry) return;
-
-    // Obtener posiciones de columnas
-    const colYs = pckry.getColYs();
-    const cols = colYs.length;
-    if (cols === 0) return;
-
-    // Altura máxima de columna
-    const heights = colYs.map((y) => y + pckry.columnHeight);
-    maxColHeight = Math.max(...heights);
-
-    // Quitar márgenes previos de todos los items
-    const items = pckry.getItemElements();
-    items.forEach((item) => (item.style.marginBottom = ""));
-
-    // Agrupar items por columna (basado en su posición left)
-    const colItems = Array.from({ length: cols }, () => []);
-    items.forEach((item) => {
-      const left = parseFloat(item.style.left);
-      if (isNaN(left)) return;
-      // Encontrar la columna más cercana
-      let colIndex = 0;
-      let minDiff = Infinity;
-      colYs.forEach((y, idx) => {
-        const diff = Math.abs(left - pckry.columnWidth * idx);
-        if (diff < minDiff) {
-          minDiff = diff;
-          colIndex = idx;
-        }
-      });
-      colItems[colIndex].push(item);
+    resetStretch();
+    const columns = new Map();
+    pckry.getItemElements().forEach((item) => {
+      const left = Math.round(item.offsetLeft);
+      const bottom = item.offsetTop + item.offsetHeight;
+      const col = columns.get(left);
+      if (!col || bottom > col.bottom) columns.set(left, { bottom, last: item });
     });
-
-    // Para cada columna, añadir margen al último elemento si es necesario
-    colItems.forEach((col, idx) => {
-      if (col.length === 0) return;
-      const lastItem = col[col.length - 1];
-      const colHeight = pckry.getColYs()[idx] + pckry.columnHeight;
-      const diff = maxColHeight - colHeight;
+    if (columns.size < 2) return;
+    maxColHeight = Math.max(...[...columns.values()].map((c) => c.bottom));
+    columns.forEach(({ bottom, last }) => {
+      const diff = maxColHeight - bottom;
       if (diff > 0.5) {
-        lastItem.style.marginBottom = diff + "px";
+        last.style.height = last.offsetHeight + diff + 'px';
+        const img = last.querySelector('img');
+        if (img) { img.style.height = '100%'; img.style.objectFit = 'cover'; }
       }
     });
-
-    // Re-aplicar layout para que Packery tenga en cuenta los nuevos márgenes
-    pckry.layout();
   }
 
   // Cargar imágenes y luego inicializar Packery
@@ -184,6 +167,7 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(() => {
       if (pckry) {
+        resetStretch();
         pckry.layout();
         // layoutComplete se encargará de equalize
       }
